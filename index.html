@@ -1,6 +1,21 @@
 <!doctype html>
 <html lang="zh-Hant">
   <head>
+    <!-- SPA redirect decoder: restores the real route after the 404.html fallback redirect -->
+    <script>
+      (function (l) {
+        if (l.search[1] === "/") {
+          var decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
     <meta charset="UTF-8" />
     <meta name="robots" content="noindex, nofollow" />
     <link rel="icon" type="image/svg+xml" href="/myportfolio/favicon.svg" />
@@ -13,8 +28,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/myportfolio/assets/index-Tv78bCEt.js"></script>
-    <link rel="stylesheet" crossorigin href="/myportfolio/assets/index-nl4FLT28.css">
+    <script type="module" crossorigin src="/myportfolio/assets/index-CdcTr8mZ.js"></script>
+    <link rel="stylesheet" crossorigin href="/myportfolio/assets/index-CpCSFdan.css">
   </head>
   <body>
     <div id="root"></div>
